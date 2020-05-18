@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
+
+// themes - our custom or/and out of the box themes
+@import "themes";
+
+// framework component themes (styles tied to theme variables)
+@import "~@nebular/theme/styles/globals";
+@import "~@nebular/auth/styles/all";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/grid";
+
+// loading progress bar theme
+@import "./pace.theme";
+
+@import "./layout";
+@import "./overrides";
+
+// install the framework and custom global styles
+@include nb-install() {
+  // framework global styles
+  @include nb-theme-global();
+  @include nb-auth-global();
+
+  @include ngx-layout();
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  @include nb-overrides();
+}
+
+.nb-theme-dark {
+
+  .ant-pagination-item,
+  .ant-pagination-prev .ant-pagination-item-link,
+  .ant-pagination-next .ant-pagination-item-link,
+  .ant-select-selection {
+    background-color: #1a2138;
+    border-color: #151a30;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;
+  }
+  
+  .ant-select-arrow{
+    color: #fff;
+  }
+
+  .ant-pagination-item:focus,
+  .ant-pagination-item:hover,
+  .ant-pagination-prev:hover .ant-pagination-item-link, 
+  .ant-pagination-next:hover .ant-pagination-item-link,
+  .ant-select-selection:hover {
+    border-color: #3366ff;
+    transition: all 0.3s;
+  }
+
+  disabled .ant-pagination-item-link, 
+  .ant-pagination-disabled:hover .ant-pagination-item-link, 
+  .ant-pagination-disabled:focus .ant-pagination-item-link {
+    border-color: #151a30;
+    cursor: not-allowed;
+}
+
+  .ant-pagination-item-active {
+    border-color: #3366ff;
+  }
+
+  .ant-select-dropdown-menu-item{
+    background-color: #222b45;
+  }
+
+  .ant-select-dropdown-menu-item:hover:not(.ant-select-dropdown-menu-item-disabled),
+  .ant-select-dropdown-menu-item-active:not(.ant-select-dropdown-menu-item-disabled) {
+    background-color: #1a2138;
+  }
+
+  button{
+    color: initial;
+  }
+
+}

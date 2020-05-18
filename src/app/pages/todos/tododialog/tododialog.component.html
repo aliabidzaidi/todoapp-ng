@@ -1,0 +1,14 @@
+<nb-card>
+  <nb-card-header class="text-center">Add a Stupid Todo</nb-card-header>
+  <nb-card-body class="todoform-col">
+
+    <input class="todo-form" type="text" nbInput fullWidth fieldSize="medium" placeholder="Heading"
+      [formControl]="heading">
+    <textarea class="body-textarea" nbInput fullWidth placeholder="Body" [formControl]="body"></textarea>
+
+  </nb-card-body>
+  <nb-card-footer class="text-right">
+    <button class="mx-2" nbButton status="basic" (click)="cancel()">Close</button>
+    <button class="mx-2" nbButton status="success" (click)="submit()">Submit</button>
+  </nb-card-footer>
+</nb-card>
