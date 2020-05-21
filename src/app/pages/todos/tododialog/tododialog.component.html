@@ -1,14 +1,29 @@
-<nb-card>
+<nb-card class="todoAddCard">
   <nb-card-header class="text-center">Add a Stupid Todo</nb-card-header>
   <nb-card-body class="todoform-col">
 
+    <div class="col-12">
     <input class="todo-form" type="text" nbInput fullWidth fieldSize="medium" placeholder="Heading"
       [formControl]="heading">
-    <textarea class="body-textarea" nbInput fullWidth placeholder="Body" [formControl]="body"></textarea>
+      <div class="validationError text-danger" *ngIf="heading.invalid && (heading.dirty || heading.touched)">
+        <div *ngIf="heading.errors.required">Heading cannot be empty</div>
+        <div *ngIf="heading.errors.maxlength">Heading cannot be greater than 100 characters</div>
+      </div>
+    </div>
 
+    <div class="col-12">
+    <textarea class="body-textarea" nbInput fullWidth placeholder="Body" [formControl]="body"></textarea>
+      <div class="validationError text-danger" *ngIf="body.invalid && (body.dirty || body.touched)">
+        <div *ngIf="body.errors.required">Body cannot be empty</div>
+        <div *ngIf="body.errors.maxlength">Body cannot be greater than 500 characters</div>
+
+      </div> 
+    </div>
+    
   </nb-card-body>
   <nb-card-footer class="text-right">
     <button class="mx-2" nbButton status="basic" (click)="cancel()">Close</button>
-    <button class="mx-2" nbButton status="success" (click)="submit()">Submit</button>
+    <button class="mx-2" nbButton status="success" [disabled]="(heading.invalid || body.invalid)"
+      (click)="submit()">Submit</button>
   </nb-card-footer>
 </nb-card>

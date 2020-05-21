@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ngx-todo-dialog',
@@ -8,8 +8,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./tododialog.component.scss'],
 })
 export class TododialogComponent {
-  heading = new FormControl('');
-  body = new FormControl('');
+  heading = new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]);
+  body = new FormControl('', [Validators.required, Validators.minLength(0), Validators.maxLength(500)]);
 
   constructor(protected ref: NbDialogRef<TododialogComponent>) { }
 
@@ -18,8 +18,14 @@ export class TododialogComponent {
   }
 
   submit() {
-    const todo = {heading: this.heading.value, body: this.body.value};
-    this.ref.close(todo);
+    if (this.heading.valid && this.body.valid) {
+      const todo = { heading: this.heading.value, body: this.body.value };
+      console.log(todo);
+      this.ref.close(todo);
+    }
+    else {
+      console.log('Invalid Data');
+    }
   }
 
 }
