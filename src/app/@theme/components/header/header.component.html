@@ -5,9 +5,11 @@
     </a>
     <a class="logo" href="#" (click)="navigateHome()">Todo App <nb-icon icon="star"></nb-icon></a>
   </div>
-  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+  <!-- <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
     <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
-  </nb-select>
+  </nb-select> -->
+  <nb-toggle class="dark-theme-toggle" status="basic" checked="currentThemeBool" (checkedChange)="changeTheme2($event)">
+    Dark Mode</nb-toggle>
   <!-- <ngx-layout-direction-switcher class="direction-switcher"></ngx-layout-direction-switcher> -->
 </div>
 
@@ -19,11 +21,8 @@
     </nb-action>
     <nb-action class="control-item" icon="email-outline"></nb-action>
     <nb-action class="control-item" icon="bell-outline"></nb-action>
-    <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
-      <nb-user [nbContextMenu]="userMenu"
-               [onlyPicture]="userPictureOnly"
-               [name]="user?.name"
-               [picture]="user?.picture">
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']">
+      <nb-user [nbContextMenu]="userMenu" [onlyPicture]="userPictureOnly" [name]="user?.name" [picture]="user?.picture">
       </nb-user>
     </nb-action>
   </nb-actions>
