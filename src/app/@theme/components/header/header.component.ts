@@ -36,8 +36,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // },
   ];
 
-  currentTheme = 'dark';
-
+  currentTheme = 'default';
+  currentThemeBool = false;
   userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
 
   constructor(private sidebarService: NbSidebarService,
@@ -77,6 +77,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
+  }
+
+  changeTheme2(isDarkTheme: boolean) {
+    console.log(isDarkTheme);
+    if(isDarkTheme)
+      this.themeService.changeTheme('dark');
+    else
+      this.themeService.changeTheme('default');
   }
 
   toggleSidebar(): boolean {
