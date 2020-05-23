@@ -1,12 +1,11 @@
-<div class="col-md-12">
+<div class="col-md-12" [nbSpinner]="loading" nbSpinnerStatus="primary">
   <nb-card accent="info">
     <nb-card-header class="text-center">Stupid Todos</nb-card-header>
     <nb-card-body>
-
       <div class="row">
         <div class="col-md-12 mb-3">
-          <button class="float-right mr-2" nbButton status="success" (click)="open()">Add<nb-icon
-              icon="plus-outline"></nb-icon></button>
+          <button class="float-right mr-2" nbButton status="success" (click)="open()">Add<nb-icon icon="plus-outline">
+            </nb-icon></button>
         </div>
         <div class="col-md-3" *ngFor="let todo of todoList">
           <nb-card status="{{todo.colorCode}}">
@@ -20,26 +19,12 @@
       </div>
 
       <br />
-      <nz-pagination [nzPageIndex]="1" [nzTotal]="23" nzShowSizeChanger [nzPageSize]="8"></nz-pagination>
+
+      <nz-pagination [nzPageIndex]="1" [nzTotal]="todoCount" nzShowSizeChanger [nzPageSize]="8"
+        [nzPageSizeOptions]=[8,16,24,32] (nzPageIndexChange)="onPageChange($event)"
+        (nzPageSizeChange)="onPageSizeChange($event)"></nz-pagination>
 
     </nb-card-body>
   </nb-card>
-
-  <!-- <ng-template #dialog let-data let-ref="dialogRef">
-    <nb-card>
-      <nb-card-header class="text-center">Add a Stupid Todo</nb-card-header>
-      <nb-card-body class="todoform-col">
-
-        <input class="todo-form" type="text" nbInput fullWidth fieldSize="medium" placeholder="Heading"
-          [formControl]="heading">
-        <textarea class="body-textarea" nbInput fullWidth placeholder="Body" [formControl]="body"></textarea>
-
-      </nb-card-body>
-      <nb-card-footer class="text-right">
-        <button class="mx-2" nbButton status="basic" (click)="ref.close()">Close</button>
-        <button class="mx-2" nbButton status="success" (click)="submit()">Submit</button>
-      </nb-card-footer>
-    </nb-card>
-  </ng-template> -->
 
 </div>

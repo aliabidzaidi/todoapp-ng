@@ -33,6 +33,10 @@
 
 .nb-theme-dark {
 
+  .ant-select-dropdown{
+    background-color: #1a2138;
+  }
+
   .ant-pagination-item,
   .ant-pagination-prev .ant-pagination-item-link,
   .ant-pagination-next .ant-pagination-item-link,
@@ -80,5 +84,6 @@
   button{
     color: initial;
   }
+
 
 }

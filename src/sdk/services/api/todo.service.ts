@@ -11,10 +11,13 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
-  public getTodos(): Observable<any> {
+  public getTodos(pageIndex, pageSize): Observable<any> {
     const url = CoreConfig.getPath() + `/todos`;
 
-    return this.http.get(url);
+    let query = {};
+    query["page"]= pageIndex;
+    query["limit"]= pageSize;
+    return this.http.get(url, { params: query });
   }
 
   public addTodo(todo): Observable<any> {

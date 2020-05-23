@@ -18,13 +18,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   themes = [
     {
-      value: 'default',
-      name: 'Light',
-    },
-    {
       value: 'dark',
       name: 'Dark',
     },
+    {
+      value: 'default',
+      name: 'Light',
+    },
+    
     // {
     //   value: 'cosmic',
     //   name: 'Cosmic',
@@ -35,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // },
   ];
 
-  currentTheme = 'default';
+  currentTheme = 'dark';
 
   userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
 
