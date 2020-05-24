@@ -1,5 +1,25 @@
 @import "../../../@theme/styles/themes";
 
+
+$light-navy: #4f708f;
+$blue:    #3498db;
+$purple:  #9b59b6;
+$navy:    #34495e;
+$green:   #2ecc71;
+$red:     #e74c3c;
+$orange:  #f39c12;
+$yellow:  #f1c40f;
+$gray:    #bdc3c7;
+
+.blue   { background: $blue }
+.purple { background: $purple }
+.navy   { background: $navy }
+.green  { background: $green }
+.red    { background: $red }
+.orange { background: $orange }
+.yellow { background: $yellow }
+.gray   { background: $gray }
+
 .todoAddCard {
   width: 600px;
 
@@ -9,5 +29,30 @@
 
   .body-textarea {
     height: 200px;
+  }
+
+  
+  .color-picker {
+    margin: 0 auto 0.5em;
+    text-align: center;
+  }
+  
+  .color-picker li {
+    display: inline-block;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.6;
+    // @include transition(opacity 0.3s ease);
+    transition: opacity 0.3s ease;
+    &:hover { opacity: 1 }
+  }
+  
+  .color-picker li.color-selected {
+    width: 35px; height: 35px;
+    border: 2px solid white;
+    opacity: 1;
   }
 }

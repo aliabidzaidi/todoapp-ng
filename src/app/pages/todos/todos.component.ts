@@ -43,7 +43,7 @@ export class TodosComponent implements OnInit {
         if (todo != null) {
           this.loading = true;
           console.log(todo);
-          newTodo = new Todo(null, todo.heading, todo.body, 'success');
+          newTodo = new Todo(null, todo.heading, todo.body, todo.colorCode);
           // console.log(newTodo);
 
           this.todoService.addTodo(newTodo).subscribe(
