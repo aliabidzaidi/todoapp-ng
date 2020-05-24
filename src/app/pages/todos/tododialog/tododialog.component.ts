@@ -12,12 +12,13 @@ import { FormControl, Validators } from '@angular/forms';
 export class TododialogComponent {
   heading = new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]);
   body = new FormControl('', [Validators.required, Validators.minLength(0), Validators.maxLength(500)]);
-  colorCode: string = 'blue';
+  colorCode: string = '';
+  
 
-  todoColors = ["blue", "red", "yellow", "purple", "green", "orange", "gray"];
+  todoColors = ["primary", "warning", "success", "danger", "info"];
 
   constructor(protected ref: NbDialogRef<TododialogComponent>) {
-    this.todoColors[0] += ' color-selected';
+    // this.todoColors[0] += ' color-selected';
   }
 
   cancel() {
@@ -36,6 +37,8 @@ export class TododialogComponent {
   }
 
   changeColor(color) {
+    //reset todoColors to remove
+    this.colorCode = color.split(' ')[0];
     this.todoColors = this.todoColors.map(function (a) {
       a = a.split(' ')[0];
       if (a === color) {
