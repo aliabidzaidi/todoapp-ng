@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../../sdk/services/api/todo.service';
-import { NbDialogService } from '@nebular/theme';
+import { NbDialogService, NbToastrService, NbComponentStatus } from '@nebular/theme';
 import { TododialogComponent } from './tododialog/tododialog.component';
 import { Todo } from '../../../sdk/services/models/Todo';
 
@@ -11,27 +11,32 @@ import { Todo } from '../../../sdk/services/models/Todo';
 })
 
 export class TodosComponent implements OnInit {
-  constructor(private todoService: TodoService, private dialogService: NbDialogService) { }
+  constructor(
+    private todoService: TodoService,
+    private dialogService: NbDialogService,
+    private toastrService: NbToastrService) { }
 
   loading = false;
   todoList: [];
   todoCount = 0;
   pageIndex = 1;
   pageSize = 8;
+  private index: number = 0;
 
   ngOnInit(): void {
     this.getTodoList();
+
   }
 
   getTodoList() {
     this.todoService.getTodos(this.pageIndex, this.pageSize).subscribe(
       (response) => {
-        console.log(response);
+      // console.log(response);
         this.todoList = response.data;
         this.todoCount = response.count;
       },
       (error) => {
-        console.log(error);
+      // console.log(error);
       },
     );
   }
@@ -42,16 +47,15 @@ export class TodosComponent implements OnInit {
       .onClose.subscribe(todo => {
         if (todo != null) {
           this.loading = true;
-          console.log(todo);
+        // console.log(todo);
           newTodo = new Todo(null, todo.heading, todo.body, todo.colorCode);
           // console.log(newTodo);
 
           this.todoService.addTodo(newTodo).subscribe(
             (response) => {
-              console.log(response);
-
-              console.log('success add');
+              this.toastrService.success('Success', 'Todo Added Successfully');
               // console.log(response);
+              // console.log('success add');
               // Show toast success
 
               // refresh todoList on page
@@ -59,8 +63,9 @@ export class TodosComponent implements OnInit {
               this.getTodoList();
             },
             (error) => {
-              console.log(error);
-              console.log('failed add');
+            // console.log(error);
+            // console.log('failed add');
+              this.toastrService.danger('Error', 'Todo Failed to Add, please try again or contact support');
 
               // Show toast failure
               // console.log(error);

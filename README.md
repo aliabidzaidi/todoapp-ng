@@ -13,3 +13,8 @@ This project consumes Python [API](https://github.com/aliabidzaidi/pythontodoapi
 
 ## Documentation
 This project is using [Nebular](https://github.com/akveo/nebular) modules set, [here you can find documentation and other useful articles](https://akveo.github.io/nebular/docs/guides/install-based-on-starter-kit).
+
+
+#### Deploy on firebase
+
+firebase deploy --only hosting:utitlity-todo

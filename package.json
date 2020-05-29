@@ -15,6 +15,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "npm run build -- --prod --aot",
+    "deploy:prod": "ng build --prod && firebase deploy --project prod",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
     "lint": "ng lint",
