@@ -9,7 +9,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Stupid Todos',
-    icon: 'archive-outline',
+    icon: 'checkmark-square-outline',
     link: '/pages/todos',
     home: true,
   },

@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 import { FormControl, Validators } from '@angular/forms';
 
-
-
 @Component({
   selector: 'ngx-todo-dialog',
   templateUrl: './tododialog.component.html',
@@ -13,7 +11,7 @@ export class TododialogComponent {
   heading = new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]);
   body = new FormControl('', [Validators.required, Validators.minLength(0), Validators.maxLength(500)]);
   colorCode: string = '';
-  
+
 
   todoColors = ["primary", "warning", "success", "danger", "info"];
 

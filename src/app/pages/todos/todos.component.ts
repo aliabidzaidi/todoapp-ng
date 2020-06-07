@@ -3,6 +3,7 @@ import { TodoService } from '../../../sdk/services/api/todo.service';
 import { NbDialogService, NbToastrService, NbComponentStatus } from '@nebular/theme';
 import { TododialogComponent } from './tododialog/tododialog.component';
 import { Todo } from '../../../sdk/services/models/Todo';
+import { ViewdialogComponent } from "./viewdialog/ViewdialogComponent";
 
 @Component({
   selector: 'ngx-todos',
@@ -31,12 +32,12 @@ export class TodosComponent implements OnInit {
   getTodoList() {
     this.todoService.getTodos(this.pageIndex, this.pageSize).subscribe(
       (response) => {
-      // console.log(response);
+        // console.log(response);
         this.todoList = response.data;
         this.todoCount = response.count;
       },
       (error) => {
-      // console.log(error);
+        // console.log(error);
       },
     );
   }
@@ -47,7 +48,7 @@ export class TodosComponent implements OnInit {
       .onClose.subscribe(todo => {
         if (todo != null) {
           this.loading = true;
-        // console.log(todo);
+          // console.log(todo);
           newTodo = new Todo(null, todo.heading, todo.body, todo.colorCode);
           // console.log(newTodo);
 
@@ -63,8 +64,8 @@ export class TodosComponent implements OnInit {
               this.getTodoList();
             },
             (error) => {
-            // console.log(error);
-            // console.log('failed add');
+              // console.log(error);
+              // console.log('failed add');
               this.toastrService.danger('Error', 'Todo Failed to Add, please try again or contact support');
 
               // Show toast failure
@@ -77,6 +78,21 @@ export class TodosComponent implements OnInit {
 
       });
 
+  }
+
+  viewTodo(todo) {
+    console.log('View Todo clicked =>', todo);
+    this.dialogService.open(ViewdialogComponent, {context: todo});
+  }
+
+
+  editTodo(todo) {
+    console.log('Edit Todo clicked =>', todo);
+  }
+
+
+  deleteTodo(todo) {
+    console.log('Delete Todo clicked =>', todo);
   }
 
   onPageChange(pageNumber): void {

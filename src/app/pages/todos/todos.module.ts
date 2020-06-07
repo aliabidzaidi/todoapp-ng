@@ -8,9 +8,10 @@ import {
 } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TododialogComponent } from './tododialog/tododialog.component';
+import { ViewdialogComponent } from "./viewdialog/ViewdialogComponent";
 
 @NgModule({
-  declarations: [TodosComponent, TododialogComponent],
+  declarations: [TodosComponent, TododialogComponent, ViewdialogComponent],
   imports: [
     CommonModule,
     NzPaginationModule,
@@ -18,6 +19,7 @@ import { TododialogComponent } from './tododialog/tododialog.component';
     NbButtonModule,
     NbIconModule,
     NbInputModule,
+    NbDialogModule.forRoot(),
     NbDialogModule.forChild(),
     ReactiveFormsModule,
     ReactiveFormsModule,
@@ -27,6 +29,7 @@ import { TododialogComponent } from './tododialog/tododialog.component';
   ],
   entryComponents: [
     TododialogComponent,
+    ViewdialogComponent,
   ],
 })
 export class TodosModule { }

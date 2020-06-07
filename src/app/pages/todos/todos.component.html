@@ -15,11 +15,42 @@
               <div class="todo-fadeout"></div>
             </nb-card-body>
             <nb-card-footer>
-              <nb-actions size="small" fullWidth>
-                <nb-action icon="eye"></nb-action>
-                <nb-action icon="edit"></nb-action>
-                <nb-action icon="trash-2"></nb-action>
-              </nb-actions>
+              <div class="todo-actions">
+                <button nbButton ghost size="tiny" status="info" (click)="viewTodo(todo)">
+                  <nb-icon icon="eye">
+                  </nb-icon>
+                </button>
+                <button nbButton ghost size="tiny" status="warning" (click)="editTodo(todo)">
+                  <nb-icon icon="edit">
+                  </nb-icon>
+                </button>
+                <button nbButton ghost size="tiny" status="danger" (click)="deleteTodo(todo)">
+                  <nb-icon icon="trash-2">
+                  </nb-icon>
+                </button>
+
+                <!-- <nb-actions size="small" fullWidth>
+                  <nb-action>
+                    <button nbButton ghost size="tiny" (click)="open()" [style.padding]="0">
+                      <nb-icon icon="eye">
+                      </nb-icon>
+                    </button>
+                  </nb-action>
+                  <nb-action>
+                    <button nbButton ghost size="tiny" (click)="open()" [style.padding]="0">
+                      <nb-icon icon="edit">
+                      </nb-icon>
+                    </button>
+                  </nb-action>
+                  <nb-action>
+                    <button nbButton ghost size="tiny" (click)="open()" [style.padding]="0">
+                      <nb-icon icon="trash-2">
+                      </nb-icon>
+                    </button>
+                  </nb-action>
+                </nb-actions> -->
+              </div>
+
             </nb-card-footer>
           </nb-card>
         </div>

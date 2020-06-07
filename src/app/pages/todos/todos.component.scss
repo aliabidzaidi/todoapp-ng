@@ -19,4 +19,16 @@
   }
 }
 
+.todo-actions {
+  display: flex;
+  justify-content: space-around;
 
+  button {
+    width: 33.3%;
+    text-align: center;
+  }
+
+  // button + button {
+  //   border-left: 1px solid #edf1f7;
+  // }
+}
