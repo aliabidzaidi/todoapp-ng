@@ -8,7 +8,7 @@ import {
 } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TododialogComponent } from './tododialog/tododialog.component';
-import { ViewdialogComponent } from "./viewdialog/ViewdialogComponent";
+import { ViewdialogComponent } from './viewdialog/viewdialog.component';
 
 @NgModule({
   declarations: [TodosComponent, TododialogComponent, ViewdialogComponent],

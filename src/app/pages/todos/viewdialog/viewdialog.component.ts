@@ -7,6 +7,12 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./viewdialog.component.scss']
 })
 export class ViewdialogComponent {
+  body;
+  colorCode;
+  dateUpdated;
+  dateAdded;
+  heading;
+  id;
 
   constructor(protected ref: NbDialogRef<ViewdialogComponent>) {
     console.log('View todo opened!!');

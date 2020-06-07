@@ -3,7 +3,7 @@ import { TodoService } from '../../../sdk/services/api/todo.service';
 import { NbDialogService, NbToastrService, NbComponentStatus } from '@nebular/theme';
 import { TododialogComponent } from './tododialog/tododialog.component';
 import { Todo } from '../../../sdk/services/models/Todo';
-import { ViewdialogComponent } from "./viewdialog/ViewdialogComponent";
+import { ViewdialogComponent } from './viewdialog/viewdialog.component';
 
 @Component({
   selector: 'ngx-todos',
@@ -82,7 +82,7 @@ export class TodosComponent implements OnInit {
 
   viewTodo(todo) {
     console.log('View Todo clicked =>', todo);
-    this.dialogService.open(ViewdialogComponent, {context: todo});
+    this.dialogService.open(ViewdialogComponent, { context: todo });
   }
 
 
