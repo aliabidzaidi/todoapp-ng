@@ -4,7 +4,19 @@
   margin-bottom: 10px;
 }
 
-// .todo-form{
-//   margin: 30px;
-//   color:red;
-// }
+.todo-div {
+  nb-card-body {
+    flex: none;
+    height: 170px;
+    overflow: hidden;
+
+    .todo-fadeout {
+      bottom: 0;
+      height: 4em;
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+
+

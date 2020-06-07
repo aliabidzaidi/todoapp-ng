@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodosComponent } from './todos.component';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
-import { NbCardModule, NbButtonModule, NbIconModule, NbDialogModule, NbInputModule, NbSpinnerModule, NbToastrModule } from '@nebular/theme';
+import {
+  NbCardModule, NbButtonModule, NbIconModule, NbDialogModule, NbInputModule,
+  NbSpinnerModule, NbToastrModule, NbActionsModule,
+} from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TododialogComponent } from './tododialog/tododialog.component';
 
@@ -19,7 +22,8 @@ import { TododialogComponent } from './tododialog/tododialog.component';
     ReactiveFormsModule,
     ReactiveFormsModule,
     NbSpinnerModule,
-    NbToastrModule
+    NbToastrModule,
+    NbActionsModule,
   ],
   entryComponents: [
     TododialogComponent,

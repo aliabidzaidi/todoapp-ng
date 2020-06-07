@@ -7,13 +7,20 @@
           <button class="float-right mr-2" nbButton status="success" (click)="open()">Add<nb-icon icon="plus-outline">
             </nb-icon></button>
         </div>
-        <div class="col-md-3" *ngFor="let todo of todoList">
+        <div class="col-md-3 todo-div" *ngFor="let todo of todoList">
           <nb-card status="{{todo.colorCode}}">
             <nb-card-header>{{todo.heading}}</nb-card-header>
             <nb-card-body>
               {{todo.body}}
+              <div class="todo-fadeout"></div>
             </nb-card-body>
-            <nb-card-footer>More..</nb-card-footer>
+            <nb-card-footer>
+              <nb-actions size="small" fullWidth>
+                <nb-action icon="eye"></nb-action>
+                <nb-action icon="edit"></nb-action>
+                <nb-action icon="trash-2"></nb-action>
+              </nb-actions>
+            </nb-card-footer>
           </nb-card>
         </div>
       </div>
