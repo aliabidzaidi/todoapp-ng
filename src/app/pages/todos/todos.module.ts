@@ -6,7 +6,7 @@ import {
   NbCardModule, NbButtonModule, NbIconModule, NbDialogModule, NbInputModule,
   NbSpinnerModule, NbToastrModule, NbActionsModule,
 } from '@nebular/theme';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TododialogComponent } from './tododialog/tododialog.component';
 import { ViewdialogComponent } from './viewdialog/viewdialog.component';
 
@@ -20,12 +20,12 @@ import { ViewdialogComponent } from './viewdialog/viewdialog.component';
     NbIconModule,
     NbInputModule,
     NbDialogModule.forRoot(),
-    NbDialogModule.forChild(),
     ReactiveFormsModule,
     ReactiveFormsModule,
     NbSpinnerModule,
     NbToastrModule,
     NbActionsModule,
+    FormsModule,
   ],
   entryComponents: [
     TododialogComponent,

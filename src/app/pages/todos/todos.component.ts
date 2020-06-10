@@ -87,7 +87,12 @@ export class TodosComponent implements OnInit {
 
 
   editTodo(todo) {
-    console.log('Edit Todo clicked =>', todo);
+    todo.isEdit = true;
+    this.dialogService.open(TododialogComponent, {context: todo}).onClose.subscribe(
+      todo => {
+        console.log(todo);
+      }
+    );
   }
 
 
