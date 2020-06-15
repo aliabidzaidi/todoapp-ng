@@ -9,39 +9,16 @@ import { FormsModule, ReactiveFormsModule, FormControl, Validators } from '@angu
 export class ViewdialogComponent implements OnInit {
 
   colorCode;
-  dateUpdated;
-  dateAdded;
   heading;
-  id;
   body: string;
-  
-  constructor(protected ref: NbDialogRef<ViewdialogComponent>) {
-    console.log('View todo opened!!');
-    console.log(this);
 
-    console.log(this.body);
-    console.log(this.heading);
-    console.log(this.colorCode);
-    console.log(this.dateAdded);
-    console.log(this.dateUpdated);
-    console.log(this.id);
+  constructor(protected ref: NbDialogRef<ViewdialogComponent>) {
   }
   ngOnInit(): void {
-    console.log("ngOnInit called.");
-    console.log(this.body);
-    console.log(this.body);
-    console.log(this.heading);
-    console.log(this.colorCode);
-    console.log(this.dateAdded);
-    console.log(this.dateUpdated);
-    console.log(this.id);
   }
-
-
 
   close() {
     this.ref.close();
-    console.log(this.body);
   }
 
 }

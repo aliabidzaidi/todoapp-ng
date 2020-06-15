@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TodoService } from '../../../sdk/services/api/todo.service';
 import { NbDialogService, NbToastrService, NbComponentStatus } from '@nebular/theme';
 import { TododialogComponent } from './tododialog/tododialog.component';
@@ -48,31 +48,20 @@ export class TodosComponent implements OnInit {
       .onClose.subscribe(todo => {
         if (todo != null) {
           this.loading = true;
-          // console.log(todo);
           newTodo = new Todo(null, todo.heading, todo.body, todo.colorCode);
-          // console.log(newTodo);
 
           this.todoService.addTodo(newTodo).subscribe(
             (response) => {
-              this.toastrService.success('Success', 'Todo Added Successfully');
-              // console.log(response);
-              // console.log('success add');
-              // Show toast success
+              this.toastrService.success(`Todo "${todo.heading}" Added Successfully`, 'Success');
 
               // refresh todoList on page
               this.todoList = [];
               this.getTodoList();
             },
             (error) => {
-              // console.log(error);
-              // console.log('failed add');
-              this.toastrService.danger('Error', 'Todo Failed to Add, please try again or contact support');
-
-              // Show toast failure
-              // console.log(error);
+              this.toastrService.danger(`Todo "${todo.heading}" failed to Add, please try again or contact support`, 'Error');
             },
           );
-
           this.loading = false;
         }
 
@@ -88,17 +77,54 @@ export class TodosComponent implements OnInit {
 
   editTodo(todo) {
     todo.isEdit = true;
-    this.dialogService.open(TododialogComponent, {context: todo}).onClose.subscribe(
+    this.dialogService.open(TododialogComponent, { context: todo }).onClose.subscribe(
       todo => {
-        console.log(todo);
-      }
+        // console.log(todo);
+        if (todo != null) {
+          //call edit api & update todoList
+          this.todoService.editTodo(todo).subscribe(
+            (response) => {
+              this.loading = true;
+              this.toastrService.success(`Todo "${todo.heading}" Edit Successful`, 'Success');
+              this.todoList = [];
+              this.getTodoList();
+              this.loading = false;
+            },
+            (error) => {
+              this.toastrService.danger(`Todo "${todo.heading}" failed to Edit, please try again or contact support`, 'Error');
+              this.loading = false;
+            },
+          );
+        }
+      },
     );
   }
 
-
-  deleteTodo(todo) {
-    console.log('Delete Todo clicked =>', todo);
+  openDeleteDialog(deleteDialog: TemplateRef<any>, todo) {
+    // console.log(todo);
+    this.dialogService.open(deleteDialog, { context: todo }).onClose.subscribe(
+      data => {
+        if (data != null) {
+          this.todoService.deleteTodo(data.id).subscribe(
+            (response) => {
+              // console.log(response);
+              this.loading = true;
+              this.toastrService.success(`Todo: "${data.heading}", is deleted`, 'Todo Deleted Successfully');
+              this.todoList = [];
+              this.getTodoList();
+              this.loading = false;
+            },
+            (error) => {
+              // console.log(error);
+              this.toastrService.danger(`Todo: "${data.heading}" failed to delete, please try again or contact support`, 'Error');
+              this.loading = false;
+            },
+          );
+        }
+      },
+    );
   }
+
 
   onPageChange(pageNumber): void {
     this.pageIndex = pageNumber;

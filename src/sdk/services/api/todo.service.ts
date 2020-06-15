@@ -15,8 +15,8 @@ export class TodoService {
     const url = CoreConfig.getPath() + `/todos`;
 
     let query = {};
-    query["page"]= pageIndex;
-    query["limit"]= pageSize;
+    query["page"] = pageIndex;
+    query["limit"] = pageSize;
     return this.http.get(url, { params: query });
   }
 
@@ -24,5 +24,18 @@ export class TodoService {
     const url = CoreConfig.getPath() + `/todos/add`;
 
     return this.http.post(url, todo);
+  }
+
+  public editTodo(todo): Observable<any> {
+    console.log('reached edit todo service');
+    const url = CoreConfig.getPath() + `/todo/` + todo.id;
+
+    return this.http.put(url, todo);
+  }
+
+  public deleteTodo(todoId): Observable<any> {
+    const url = CoreConfig.getPath() + `/todo/` + todoId;
+
+    return this.http.delete(url);
   }
 }

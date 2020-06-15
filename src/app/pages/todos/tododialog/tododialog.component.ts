@@ -11,10 +11,7 @@ export class TododialogComponent implements OnInit {
   input_heading = new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]);
   input_body = new FormControl('', [Validators.required, Validators.minLength(0), Validators.maxLength(500)]);
   colorCode: string = '';
-
-
-  todoColors = ["primary", "warning", "success", "danger", "info"];
-
+  todoColors = ['primary', 'warning', 'success', 'danger', 'info'];
   isEdit: boolean;
   body: string;
   heading: string;
@@ -24,15 +21,12 @@ export class TododialogComponent implements OnInit {
     // this.todoColors[0] += ' color-selected';
   }
   ngOnInit(): void {
-    console.log("ngOnInit called.");
     console.log(this);
     if (this.isEdit) {
       this.input_heading.setValue(this.heading);
       this.input_body.setValue(this.body);
       this.id;
     }
-    console.log(this.input_heading.value);
-    console.log(this.input_heading.value);
   }
 
   cancel() {
@@ -42,11 +36,11 @@ export class TododialogComponent implements OnInit {
   submit() {
     if (this.input_heading.valid && this.input_body.valid) {
       const todo = { id: this.id, heading: this.input_heading.value, body: this.input_body.value, colorCode: this.colorCode };
-      console.log(todo);
+      // console.log(todo);
       this.ref.close(todo);
     }
     else {
-      console.log('Invalid Data');
+      // console.log('Invalid Data');
     }
   }
 
