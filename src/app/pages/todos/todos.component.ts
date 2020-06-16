@@ -70,7 +70,7 @@ export class TodosComponent implements OnInit {
   }
 
   viewTodo(todo) {
-    console.log('View Todo clicked =>', todo);
+    // console.log('View Todo clicked =>', todo);
     this.dialogService.open(ViewdialogComponent, { context: todo });
   }
 

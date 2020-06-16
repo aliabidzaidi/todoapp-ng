@@ -8,11 +8,12 @@
   <!-- <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
     <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
   </nb-select> -->
-  <nb-toggle class="dark-theme-toggle" status="basic" checked="currentThemeBool" (checkedChange)="changeTheme2($event)">Dark Mode</nb-toggle>
+  <!-- <nb-toggle class="dark-theme-toggle" status="basic" checked="currentThemeBool" (checkedChange)="changeTheme2($event)">Dark Mode</nb-toggle> -->
   <!-- <ngx-layout-direction-switcher class="direction-switcher"></ngx-layout-direction-switcher> -->
 </div>
+<nb-toggle class="dark-theme-toggle" status="basic" checked="currentThemeBool" (checkedChange)="changeTheme2($event)">Dark Mode</nb-toggle>
 
-<div class="header-container">
+<!-- <div class="header-container">
   <nb-actions size="small">
 
     <nb-action class="control-item">
@@ -28,4 +29,4 @@
       </nb-user>
     </nb-action>
   </nb-actions>
-</div>
+</div> -->

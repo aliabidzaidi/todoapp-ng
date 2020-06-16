@@ -17,6 +17,12 @@
       width: 100%;
     }
   }
+  
+  nb-card-header{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .todo-actions {
@@ -24,11 +30,13 @@
   justify-content: space-around;
 
   button {
-    width: 33.3%;
+    // width: 33.3%;
     text-align: center;
   }
 
   // button + button {
   //   border-left: 1px solid #edf1f7;
   // }
+
+
 }

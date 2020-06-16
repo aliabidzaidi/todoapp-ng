@@ -1,6 +1,5 @@
 @import "../../../@theme/styles/themes";
 
-
 $primary: #3366ff;
 $info: #0095ff;
 $success: #00d68f;
@@ -10,20 +9,36 @@ $danger: #ff3d71;
 $custom1: #ff6e28;
 $custom2: #bcd402;
 
-.primary { background :$primary}
-.info { background :$info}
-.success { background :$success}
-.warning { background :$warning}
-.danger { background :$danger } 
+.primary {
+  background: $primary;
+}
+.info {
+  background: $info;
+}
+.success {
+  background: $success;
+}
+.warning {
+  background: $warning;
+}
+.danger {
+  background: $danger;
+}
 
 .todoAddCard {
   width: 600px;
+  max-height: 90vh;
+
+  @media only screen and (max-width: 767px) {
+    width: 85vw;
+  }
+
 
   .todoform-col > * {
     margin-bottom: 1rem;
   }
 
-  .validationError{
+  .validationError {
     margin-top: 5px;
     font-weight: 600;
   }
@@ -32,16 +47,16 @@ $custom2: #bcd402;
     height: 200px;
   }
 
-  
   .color-picker {
     margin: 0 auto;
     padding: 0;
     text-align: center;
   }
-  
+
   .color-picker li {
     display: inline-block;
-    width: 40px; height: 40px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin: 5px;
     padding: 5px;
@@ -50,12 +65,15 @@ $custom2: #bcd402;
     opacity: 0.6;
     // @include transition(opacity 0.3s ease);
     transition: opacity 0.3s ease;
-    &:hover { opacity: 1 }
+    &:hover {
+      opacity: 1;
+    }
     border: 2px solid transparent;
   }
-  
+
   .color-picker li.color-selected {
-    width: 45px; height: 45px;
+    width: 45px;
+    height: 45px;
     border: 2px solid white;
     opacity: 1;
   }
