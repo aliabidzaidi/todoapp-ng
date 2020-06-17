@@ -32,3 +32,92 @@
     }
   }
 }
+
+.animate-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  width: 500px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.container .icon {
+  width: 500px;
+}
+.container .icon path {
+  fill: transparent;
+  stroke-width: 6;
+  stroke: #3366ff;
+}
+.container .icon.house path {
+  stroke-dasharray: 10000;
+  stroke-dashoffset: 0;
+}
+.container .icon.house path {
+  animation: animate-house 7.2s linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+@keyframes animate-house {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  25% {
+    stroke-dashoffset: 4000;
+  }
+  50% {
+    stroke-dashoffset: 7000;
+  }
+  75% {
+    stroke-dashoffset: 8000;
+  }
+  85% {
+    stroke-dashoffset: 9000;
+  }
+  100% {
+    stroke-dashoffset: 10000;
+  }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+h1 {
+  font-family: "Patua One", cursive;
+  color: #3366ff;
+}
+#content h1 {
+  width: 700px;
+  font-size: 60px;
+  animation: safe;
+  position: relative;
+  animation-duration: 4s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+  transition-timing-function: ease-out;
+  opacity: 0;
+}
+
+@keyframes safe {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  0% {
+    right: -500px;
+  }
+  100% {
+    right: 250px;
+  }
+}
