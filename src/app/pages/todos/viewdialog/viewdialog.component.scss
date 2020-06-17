@@ -1,1 +1,10 @@
 @import "../../../@theme/styles/themes";
+
+.popup-card{
+  width: 600px;
+  max-height: 90vh;
+
+  @media only screen and (max-width: 767px) {
+    width: 85vw;
+  }
+}
