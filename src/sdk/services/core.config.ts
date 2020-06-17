@@ -8,4 +8,8 @@ export class CoreConfig {
   public static getSocketPath(): string {
     return environment.socketPath;
   }
+
+  public static getVirusApiPath(): string{
+    return environment.virusApiPath;
+  }
 }

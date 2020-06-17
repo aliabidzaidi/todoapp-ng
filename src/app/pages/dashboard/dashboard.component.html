@@ -1,5 +1,48 @@
 <div class="row">
-  <nb-card>
-    <nb-card-body>Hello from ngx-admin sandbox project.</nb-card-body>
-  </nb-card>
+  <div class="col-md-4">
+    <div class="sm-card">
+      <nb-card accent="success">
+        <div>
+          <h5>Total Cases</h5>
+          <img class="float-right" src="assets/images/virus-96.png" alt="corona virus">
+          <h4>{{totalCases | number}}</h4>
+        </div>
+        
+      </nb-card>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="sm-card">
+      <nb-card accent="danger">
+        <div>
+          <h5>Recovered</h5>
+          <img class="img-icon" src="assets/images/heart-health-128.png" alt="corona virus">
+          <h4>{{recovered | number}}</h4>
+        </div>
+      </nb-card>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="sm-card">
+      <nb-card accent="primary">
+        <div>
+          <h5>Deaths</h5>
+          <img class="img-icon" src="assets/images/peace-pigeon-96.png" alt="corona virus">
+          <h4>{{deaths | number}}</h4>
+        </div>
+      </nb-card>
+    </div>
+  </div>
+
 </div>
+
+<!-- <div class="col-md-12">
+  <nb-card accent="danger">
+    <nb-card-header class="text-center"><h2>Covid-19 stats</h2></nb-card-header>
+    <nb-card-body>
+
+    </nb-card-body>
+  </nb-card>
+</div> -->

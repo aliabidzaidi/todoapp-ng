@@ -2,16 +2,16 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
-    icon: 'home-outline',
-    link: '/pages/dashboard',
+    title: 'Stupid Todos',
+    icon: 'clipboard-outline',
+    link: '/pages/todos',
     home: true,
   },
   {
-    title: 'Stupid Todos',
-    icon: 'checkmark-square-outline',
-    link: '/pages/todos',
-    home: true,
+    title: 'Covid-19',
+    icon: 'shake-outline',
+    link: '/pages/dashboard',
+    home: false,
   },
   {
     title: 'FEATURES',
