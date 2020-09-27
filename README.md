@@ -1,4 +1,10 @@
 # Todo Application Using Angular & Nebular
+<p align="center">
+  <a href="https://todoapp-ng.vercel.app/pages/dashboard">
+    <img align="center" src="src/assets/screenshots/todo-app.gif" height="400px">
+  </a>
+</p>
+
 
 This project consumes Python [API](https://github.com/aliabidzaidi/pythontodoapi) for data
 
