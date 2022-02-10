@@ -51,7 +51,7 @@
     "intl": "1.2.5",
     "nebular-icons": "1.1.0",
     "ng-zorro-antd": "^8.5.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "6.0.0",
     "pace-js": "1.0.2",
     "roboto-fontface": "0.8.0",
