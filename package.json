@@ -67,7 +67,7 @@
     "@angular/cli": "^8.0.2",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "8.2.14",
-    "@compodoc/compodoc": "1.0.1",
+    "@compodoc/compodoc": "1.1.21",
     "@types/jasmine": "2.5.54",
     "@types/jasminewd2": "2.0.3",
     "@types/node": "6.0.90",
